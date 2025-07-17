@@ -1,8 +1,47 @@
-# Getting Started with Create React App
+# Tic-Tac-Toe Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, optimized tic-tac-toe game built with React featuring beautiful styling and time travel functionality.
 
-## Available Scripts
+## 🎮 Live Demo
+
+Play the game: [https://summerxiahuang.github.io/tic-tac-toe](https://summerxiahuang.github.io/tic-tac-toe)
+
+## ✨ Features
+
+- 🎨 **Modern Design**: Beautiful glass morphism UI with gradient backgrounds
+- ⚡ **Performance Optimized**: Uses React hooks (useCallback, useMemo, React.memo) for optimal performance
+- 🕰️ **Time Travel**: Go back to any previous move and create alternate game histories
+- 📱 **Responsive**: Works perfectly on desktop, tablet, and mobile devices
+- 🎯 **Accessibility**: Keyboard navigation and focus states included
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/summerxiahuang/tic-tac-toe.git
+cd tic-tac-toe
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## 📜 Available Scripts
 
 In the project directory, you can run:
 
@@ -27,44 +66,120 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run deploy`
 
-### `npm run eject`
+Deploys the app to GitHub Pages. This command:
+- Automatically builds the app for production
+- Pushes the built files to the `gh-pages` branch
+- Publishes your app to GitHub Pages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🌐 Deployment to GitHub Pages
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Step 1: Install gh-pages Package
+```bash
+npm install --save-dev gh-pages
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Step 2: Configure package.json
+Add these configurations to your `package.json`:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```json
+{
+  "homepage": "https://your-username.github.io/your-repo-name",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
+```
 
-## Learn More
+**Important**: Replace `your-username` and `your-repo-name` with your actual GitHub username and repository name.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Step 3: Commit and Push Changes
+```bash
+git add package.json
+git commit -m "Add GitHub Pages deployment configuration"
+git push origin main
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Step 4: Deploy to GitHub Pages
+```bash
+npm run deploy
+```
 
-### Code Splitting
+### Step 5: Configure GitHub Pages Source
+1. Go to your GitHub repository
+2. Click **Settings** (tab at the top)
+3. Scroll down to **Pages** (in the left sidebar)
+4. Under **Source**, select **"Deploy from a branch"**
+5. Choose branch: **`gh-pages`**
+6. Click **Save**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Step 6: Wait for Deployment
+- Deployment usually takes 2-5 minutes
+- Check the **Actions** tab for deployment status
+- Your app will be live at: `https://your-username.github.io/your-repo-name`
 
-### Analyzing the Bundle Size
+### For Future Updates
+Whenever you make changes to your app:
+```bash
+git add .
+git commit -m "Your update message"
+git push origin main
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🏗️ Project Structure
 
-### Making a Progressive Web App
+```
+src/
+├── App.js          # Main app component
+├── App.css         # Main app styles
+├── Game.js         # Game logic and state management
+├── Board.js        # Game board component
+├── Square.js       # Individual square component
+├── index.js        # App entry point
+└── index.css       # Global styles
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🛠️ Technologies Used
 
-### Advanced Configuration
+- **React 19.1.0** - UI library
+- **Create React App** - Build tool and development environment
+- **CSS3** - Modern styling with gradients and animations
+- **GitHub Pages** - Hosting platform
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🎯 Game Features Explained
 
-### Deployment
+### Time Travel
+- Click any move in the history to go back to that point
+- Make new moves from any previous position
+- Creates alternate game timelines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Performance Optimizations
+- **useCallback**: Prevents unnecessary re-renders of event handlers
+- **useMemo**: Memoizes expensive calculations and component lists
+- **React.memo**: Prevents re-rendering of components when props haven't changed
 
-### `npm run build` fails to minify
+### Responsive Design
+- Adapts to different screen sizes
+- Touch-friendly on mobile devices
+- Maintains visual appeal across all platforms
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built with [Create React App](https://github.com/facebook/create-react-app)
+- Inspired by the React tutorial
+- Styled with modern CSS techniques
