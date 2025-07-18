@@ -2,7 +2,11 @@ import { memo } from 'react';
 
 const Square = memo(({ value, onClick }) => {
     return (
-        <button className="square" onClick={onClick}>
+        <button 
+            className="square" 
+            onClick={onClick}
+            data-value={value}
+        >
             {value}
         </button>
     );

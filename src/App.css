@@ -110,6 +110,177 @@
     0 0 20px rgba(120, 219, 255, 0.3);
 }
 
+/* Galaxy-themed X styling */
+.square:has(span:contains("X")) span,
+.square span:contains("X"),
+.square:contains("X") {
+  background: linear-gradient(135deg, 
+    #ff6b6b 0%, 
+    #ff8e8e 25%, 
+    #ffb3b3 50%, 
+    #ffd6d6 75%, 
+    #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.8),
+    0 0 40px rgba(255, 107, 107, 0.6),
+    0 0 60px rgba(255, 107, 107, 0.4);
+  animation: xGlow 2s ease-in-out infinite alternate;
+  font-weight: 900;
+  position: relative;
+}
+
+.square:has(span:contains("X")) span::before,
+.square span:contains("X")::before,
+.square:contains("X")::before {
+  content: 'X';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.3) 0%, 
+    rgba(255, 142, 142, 0.3) 50%, 
+    rgba(255, 255, 255, 0.3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: xPulse 1.5s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes xGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 107, 107, 0.8),
+      0 0 40px rgba(255, 107, 107, 0.6),
+      0 0 60px rgba(255, 107, 107, 0.4);
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(255, 107, 107, 1),
+      0 0 60px rgba(255, 107, 107, 0.8),
+      0 0 90px rgba(255, 107, 107, 0.6);
+  }
+}
+
+@keyframes xPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Galaxy-themed O styling */
+.square:has(span:contains("O")) span,
+.square span:contains("O"),
+.square:contains("O") {
+  background: linear-gradient(135deg, 
+    #4ecdc4 0%, 
+    #6ee7df 25%, 
+    #8ef0e9 50%, 
+    #aef8f2 75%, 
+    #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(78, 205, 196, 0.8),
+    0 0 40px rgba(78, 205, 196, 0.6),
+    0 0 60px rgba(78, 205, 196, 0.4);
+  animation: oGlow 2s ease-in-out infinite alternate;
+  font-weight: 900;
+  position: relative;
+}
+
+.square:has(span:contains("O")) span::before,
+.square span:contains("O")::before,
+.square:contains("O")::before {
+  content: 'O';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, 
+    rgba(78, 205, 196, 0.3) 0%, 
+    rgba(110, 231, 223, 0.3) 50%, 
+    rgba(255, 255, 255, 0.3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: oPulse 1.5s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes oGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(78, 205, 196, 0.8),
+      0 0 40px rgba(78, 205, 196, 0.6),
+      0 0 60px rgba(78, 205, 196, 0.4);
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(78, 205, 196, 1),
+      0 0 60px rgba(78, 205, 196, 0.8),
+      0 0 90px rgba(78, 205, 196, 0.6);
+  }
+}
+
+@keyframes oPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Alternative approach for better browser support */
+.square[data-value="X"] {
+  color: transparent;
+  background: linear-gradient(135deg, 
+    #ff6b6b 0%, 
+    #ff8e8e 25%, 
+    #ffb3b3 50%, 
+    #ffd6d6 75%, 
+    #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.8),
+    0 0 40px rgba(255, 107, 107, 0.6),
+    0 0 60px rgba(255, 107, 107, 0.4);
+  animation: xGlow 2s ease-in-out infinite alternate;
+  font-weight: 900;
+}
+
+.square[data-value="O"] {
+  color: transparent;
+  background: linear-gradient(135deg, 
+    #4ecdc4 0%, 
+    #6ee7df 25%, 
+    #8ef0e9 50%, 
+    #aef8f2 75%, 
+    #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(78, 205, 196, 0.8),
+    0 0 40px rgba(78, 205, 196, 0.6),
+    0 0 60px rgba(78, 205, 196, 0.4);
+  animation: oGlow 2s ease-in-out infinite alternate;
+  font-weight: 900;
+}
+
 .status {
   font-size: 1.5rem;
   font-weight: 600;
